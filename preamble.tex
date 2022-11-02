@@ -1,0 +1,50 @@
+\usepackage{listings, jlisting}
+
+\newcounter{programcount}
+\setcounter{programcount}{0}
+\newcounter{resultcount}
+\setcounter{resultcount}{0}
+
+\lstdefinestyle{program}{
+  language=c,
+  basicstyle=\ttfamily\scriptsize,
+  commentstyle=\textit,
+  classoffset=1,
+  keywordstyle=\bfseries,
+  frame=tb,
+  framesep=5pt,
+  showstringspaces=false,
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+  tabsize=4
+}
+
+\lstdefinestyle{result}{
+  language=c,
+  basicstyle=\ttfamily\scriptsize,
+  commentstyle=\textit,
+  classoffset=1,
+  keywordstyle=\bfseries,
+  frame=tRBl,
+  framesep=5pt,
+  showstringspaces=false,
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+  tabsize=4
+}
+
+\newcommand{\program}[3]{
+  \renewcommand{\lstlistingname}{リスト}
+  \setcounter{lstlisting}{\theprogramcount}
+  \refstepcounter{programcount}
+  \lstinputlisting[label=#2, caption=#1, style=program]{#3}
+
+}
+\newcommand{\result}[3]{
+  \renewcommand{\lstlistingname}{実行結果}
+  \setcounter{lstlisting}{\theresultcount}
+  \refstepcounter{resultcount}
+  \lstinputlisting[label=#2, caption=#1, style=result]{#3}
+}

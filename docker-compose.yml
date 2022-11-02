@@ -1,9 +1,11 @@
 version: '3'
 services:
   platex:
-    build: .config/platex/Dockerfile
+    build: ./.config/platex/
     container_name: platex
     volumes:
       - .:/workdir
     command: >
-      /bin/ash -c "platex -output-directory=./out main.tex&& dvipdfmx ./out/main.dvi"
+      /bin/ash -c "platex -output-directory=out /workdir/main.tex &&
+                   platex -output-directory=out /workdir/main.tex &&
+                   dvipdfmx ./out/main.dvi"

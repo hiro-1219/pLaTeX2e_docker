@@ -1,7 +1,10 @@
 # pLaTeX2e_docker
-pLaTeX2eのコンパイルをdockerでやる
+pLaTeX2dをdockerで使いたい
 
-# 使い方
+## 使い方
 ```bash
-docker-compose up
+$ make setup  // outディレクトリ作成
+$ make        // コンパイル
+$ make clean  // outディレクトリ内削除
+$ make delete // pdf削除
 ```
